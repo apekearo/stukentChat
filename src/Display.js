@@ -1,14 +1,34 @@
-import React, { Component } from 'react';
-var moment = require ('moment');
+import React, {
+    Component
+} from 'react';
+var moment = require('moment');
 class Display extends React.Component {
-   render(){
-       return <ul>{this.state.items.map(item => 
-        (<li key={item.id}>{item.text}</li>)
-    )}
-    timestamp = moment().format("h:mm:ss a");
-    timestamp.fromNow("mm:ss");
-    </ul>
-   }
-}
+        
+    convertTime = (timeInStr) => {
+        const timestamp = moment(timeInStr).format("h:mm:ss a");
+        const minutesFromNow = moment(timeInStr).fromNow("mm:ss");
+        return {
+            timestamp,
+            minutesFromNow,
+        }
+        
+    } 
+    render() {
+            return (        
+                <ul> 
+                {
+                    this.props.items.map(item => {
+                       const { timestamp, minutesFromNow } = this.convertTime(item.id)
+                        return (
+                            <li key={item.id}> 
+                                { `${minutesFromNow} ${timestamp} ${item.text}` } 
+                            </li>
+                        )
+                    })
+                }
+                </ul>
+            )
+        }
+    }
 
-export default display;
+        export default Display;

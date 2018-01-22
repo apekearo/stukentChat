@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-// import display from './Display';
-import Picker from './Emoji';
+import Display from './Display';
+// import Picker from './Emoji';
 
 class ChatWindow extends Component {
 
@@ -16,17 +16,12 @@ class ChatWindow extends Component {
       <div>
         <h3>Stukent Chat App</h3>
         
-        <ul>{this.state.items.map(item => 
-        (<li key={item.id}>{item.text}</li>)
-    )}
+        <Display />
        
-    </ul>
-
-        <form onSubmit={this.handleSubmit}>
+          <form onSubmit={this.handleSubmit}>
           <input onChange={this.handleChange} value={this.state.text} />
           <button>{'Send'}</button>
         </form>
-        <Picker></Picker>
       </div>
     );
   }

@@ -1,9 +1,11 @@
-import { Picker } from 'emoji-mart';
-
-<Picker set='twitter' />;
-<Picker onClick={this.addEmoji} />;
-<Picker title='Pick your emoji…' emoji='point_up' />;
-<Picker style={{ position: 'absolute', bottom: '20px', right: '20px' }} />;
-<Picker i18n={{ search: 'Recherche', categories: { search: 'Résultats de recherche', recent: 'Récents' } }} />;
-
-export default Picker;
+import React from 'react';
+import Emojify from 'react-emojione';
+class Emojify extends React.Component {
+render(
+    <Emojify>
+        <span>Easy! :wink:</span>
+        <span>😸 :D  ^__^</span>
+    </Emojify>,
+    document.body
+);
+export default Emojify;
