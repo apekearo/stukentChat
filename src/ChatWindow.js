@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import Display from './Display';
+import Picker from './EmojiPicker';
+import {Emojify} from 'react-emojione';
 // import Picker from './Emoji';
 
 class ChatWindow extends Component {
@@ -8,6 +10,7 @@ class ChatWindow extends Component {
     super(props);
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.addText = this.addText.bind(this);
     this.state = {items: [], text: ''};
   }
 
@@ -15,15 +18,21 @@ class ChatWindow extends Component {
     return (
       <div>
         <h3>Stukent Chat App</h3>
-        
-        <Display />
-       
+        <Emojify>
+          <Display items={this.state.items}/>
           <form onSubmit={this.handleSubmit}>
+          
           <input onChange={this.handleChange} value={this.state.text} />
+          <Picker addText={this.addText}/>
           <button>{'Send'}</button>
         </form>
+        </Emojify>
       </div>
     );
+  }
+
+  addText(text) {
+    this.setState({text:this.state.text+text});
   }
 
   handleChange(e) {

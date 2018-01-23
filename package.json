@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "emoji-picker-react": "^2.0.1",
     "emoji-picker-textfield": "0.0.13",
     "moment": "^2.20.1",
     "react": "^15.5.4",
